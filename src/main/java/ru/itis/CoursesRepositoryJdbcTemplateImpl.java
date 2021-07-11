@@ -114,7 +114,6 @@ public class CoursesRepositoryJdbcTemplateImpl implements CoursesRepository {
     @Override
     public void save(Course course) {
         KeyHolder keyHolder = new GeneratedKeyHolder();
-        System.out.println(course);
         jdbcTemplate.update(connection -> {
 
                     PreparedStatement statement = connection.prepareStatement(SQL_SAVE_COURSE, new String[]{"id"});
@@ -126,8 +125,6 @@ public class CoursesRepositoryJdbcTemplateImpl implements CoursesRepository {
                 }
                 , keyHolder);
         course.setId(keyHolder.getKey().longValue());
-        System.out.println(course);
-
     }
 
     @Override
