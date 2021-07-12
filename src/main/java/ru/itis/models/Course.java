@@ -15,20 +15,7 @@ public class Course {
         this.id = id;
     }
 
-    public Course(Long id, String name, LocalDate startDate, LocalDate endDate, Teacher teacher, List<Student> students) {
-        this.id = id;
-        this.name = name;
-        this.startDate = startDate;
-        this.endDate = endDate;
-        this.teacher = teacher;
-        this.students = students;
-    }
-    public Course(Long id, String name, LocalDate startDate, LocalDate endDate) {
-        this.id = id;
-        this.name = name;
-        this.startDate = startDate;
-        this.endDate = endDate;
-    }
+
     public Course(Long id, String name, LocalDate startDate, LocalDate endDate, Teacher teacher) {
         this.id = id;
         this.name = name;
@@ -37,25 +24,19 @@ public class Course {
         this.teacher = teacher;
     }
 
-    public Course(String name, LocalDate startDate, LocalDate endDate, Teacher teacher, List<Student> students) {
+    public Course(Long id, String name, LocalDate startDate, LocalDate endDate, List<Student> students) {
+        this.id = id;
+        this.name = name;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.students = students;
+    }
+    public Course( String name, LocalDate startDate, LocalDate endDate,  Teacher teacher, List<Student> students) {
         this.name = name;
         this.startDate = startDate;
         this.endDate = endDate;
         this.teacher = teacher;
         this.students = students;
-    }
-
-    public Course(String name, LocalDate startDate, LocalDate endDate) {
-        this.name = name;
-        this.startDate = startDate;
-        this.endDate = endDate;
-    }
-
-    public Course(String name, LocalDate startDate, LocalDate endDate, Teacher teacher) {
-        this.name = name;
-        this.startDate = startDate;
-        this.endDate = endDate;
-        this.teacher = teacher;
     }
 
     public Long getId() {

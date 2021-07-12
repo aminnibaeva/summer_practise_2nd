@@ -13,6 +13,13 @@ public class Student {
         this.id = id;
     }
 
+    public Student(Long id, String firstName, String secondName, Integer group) {
+        this.id = id;
+        this.firstName = firstName;
+        this.secondName = secondName;
+        this.group = group;
+    }
+
     public Student(String firstName, String secondName, Integer group, List<Course> courses) {
         this.firstName = firstName;
         this.secondName = secondName;
@@ -64,6 +71,9 @@ public class Student {
     public String toString() {
         return "Student{" +
                 "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", secondName='" + secondName + '\'' +
+                ", group=" + group +
                 '}';
     }
 }

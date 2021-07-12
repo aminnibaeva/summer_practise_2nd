@@ -39,8 +39,6 @@ insert into lesson (name, date, course_id)
 VALUES ('Алгебра', '2020-11-07', 4);
 insert into lesson (name, date, course_id)
 VALUES ('Информатика', '2020-11-07', 3);
-insert into lesson (name, date, course_id)
-VALUES ('Информатика', '2020-11-07', 3);
 
 insert into course_teachers (id_teacher, id_course)
 VALUES (2, 1);

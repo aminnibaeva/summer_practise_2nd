@@ -13,6 +13,7 @@ import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Function;
 
@@ -59,7 +60,7 @@ public class LessonRepositoryJdbcTemplateImpl implements LessonsRepository {
             LocalDate startDate = LocalDate.parse(row.getString("start_date"));
             LocalDate endDate = LocalDate.parse(row.getString("end_date"));
 
-            return new Course(id, name, startDate, endDate);
+            return new Course(id, name, startDate, endDate, new ArrayList<>());
 
         } catch (SQLException e) {
             throw new IllegalArgumentException(e);
@@ -102,7 +103,7 @@ public class LessonRepositoryJdbcTemplateImpl implements LessonsRepository {
     @Override
     public Optional<Lesson> findById(Integer id) {
         try {
-            return Optional.of(jdbcTemplate.query(
+            return Optional.ofNullable(jdbcTemplate.query(
                     connection -> {
                         PreparedStatement statement = connection.prepareStatement(SQL_FIND_LESSON_BY_ID);
                         statement.setInt(1, id);
@@ -117,7 +118,7 @@ public class LessonRepositoryJdbcTemplateImpl implements LessonsRepository {
     @Override
     public void save(Lesson lesson) {
         KeyHolder keyHolder = new GeneratedKeyHolder();
-        System.out.println(lesson);
+        System.out.println("\n" + lesson);
         jdbcTemplate.update(connection -> {
 
                     PreparedStatement statement = connection.prepareStatement(SQL_SAVE_LESSON, new String[]{"id"});
@@ -127,7 +128,7 @@ public class LessonRepositoryJdbcTemplateImpl implements LessonsRepository {
                     return statement;
                 }
                 , keyHolder);
-        lesson.setId(keyHolder.getKey().longValue());
+        lesson.setId(Objects.requireNonNull(keyHolder.getKey()).longValue());
         System.out.println(lesson);
 
     }
