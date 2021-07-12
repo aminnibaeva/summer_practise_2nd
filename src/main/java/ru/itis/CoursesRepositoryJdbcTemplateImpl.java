@@ -28,16 +28,16 @@ public class CoursesRepositoryJdbcTemplateImpl implements CoursesRepository {
 
     private static final String SQL_FIND_COURSE_BY_ID = "select course_id_ as id_course, name as course_name, start_date " +
             "as course_start_date, end_date as course_end_date, t.id as teacher_id, t.first_name as teacher_first_name," +
-            " t.second_name as teacher_second_name,   work_experience , t2.id_student as student_id, t2.first_name as " +
-            "student_first_name, t2.second_name as student_second_name, group_number as student_group_number from (select " +
+            " t.last_name as teacher_last_name,   work_experience , t2.id_student as student_id, t2.first_name as " +
+            "student_first_name, t2.last_name as student_last_name, group_number as student_group_number from (select " +
             "*  from (select *, id as course_id_ from course full join course_students on course.id = " +
             "course_students.id_course where course.id = ?) t1 left join  student s on t1.id_student = s.id) t2 left" +
             " join teacher t on  t2.teacher_id = t.id order by id_course";
 
     private static final String SQL_FIND_COURSE_BY_NAME = "select course_id_ as id_course, name as course_name, " +
             "start_date as course_start_date, end_date as course_end_date, t.id as teacher_id, t.first_name as " +
-            "teacher_first_name, t.second_name as teacher_second_name,   work_experience , t2.id_student as student_id, " +
-            "t2.first_name as student_first_name, t2.second_name as student_second_name, group_number as student_group_number" +
+            "teacher_first_name, t.last_name as teacher_last_name,   work_experience , t2.id_student as student_id, " +
+            "t2.first_name as student_first_name, t2.last_name as student_last_name, group_number as student_group_number" +
             " from (select *  from (select *, id as course_id_ from course full join course_students on course.id = " +
             "course_students.id_course where course.name = ?) t1 left join  student s on t1.id_student = s.id) t2 left join" +
             " teacher t on  t2.teacher_id = t.id order by id_course";
@@ -60,10 +60,10 @@ public class CoursesRepositoryJdbcTemplateImpl implements CoursesRepository {
         try {
             Long teacherId = row.getLong("teacher_id");
             String teacherFirstName = row.getString("teacher_first_name");
-            String teacherSecondName = row.getString("teacher_second_name");
+            String teacherLastName = row.getString("teacher_last_name");
             Integer teacherWorkExperience = row.getInt("work_experience");
 
-            return new Teacher(teacherId, teacherFirstName, teacherSecondName, teacherWorkExperience, new ArrayList<>());
+            return new Teacher(teacherId, teacherFirstName, teacherLastName, teacherWorkExperience, new ArrayList<>());
         } catch (SQLException e) {
             throw new IllegalArgumentException(e);
         }
@@ -76,9 +76,9 @@ public class CoursesRepositoryJdbcTemplateImpl implements CoursesRepository {
             }
             Long id = row.getLong("student_id");
             String firstName = row.getString("student_first_name");
-            String secondName = row.getString("student_second_name");
+            String lastName = row.getString("student_last_name");
             Integer groupNumber = row.getInt("student_group_number");
-            return new Student(id, firstName, secondName, groupNumber);
+            return new Student(id, firstName, lastName, groupNumber);
         } catch (SQLException e) {
             throw new IllegalArgumentException(e);
         }

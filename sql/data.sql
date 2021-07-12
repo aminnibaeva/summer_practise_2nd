@@ -1,23 +1,23 @@
-insert into student (first_name, second_name, group_number)
+insert into student (first_name, last_name, group_number)
 VALUES ('Станислав', 'Лихачёв', 1);
-insert into student (first_name, second_name, group_number)
+insert into student (first_name, last_name, group_number)
 VALUES ('Гарри', 'лейников', 2);
-insert into student (first_name, second_name, group_number)
+insert into student (first_name, last_name, group_number)
 VALUES ('Ольга', 'Кудрявцева', 3);
-insert into student (first_name, second_name, group_number)
+insert into student (first_name, last_name, group_number)
 VALUES ('Юлиан', 'Чиркин', 3);
-insert into student (first_name, second_name, group_number)
+insert into student (first_name, last_name, group_number)
 VALUES ('Варвара', 'Воронцова', 4);
-insert into student (first_name, second_name, group_number)
+insert into student (first_name, last_name, group_number)
 VALUES ('Владислав', 'Рябов', 4);
-insert into student (first_name, second_name, group_number)
+insert into student (first_name, last_name, group_number)
 VALUES ('Клара', 'Русакова', 4);
 
-insert into teacher (first_name, second_name, work_experience)
+insert into teacher (first_name, last_name, work_experience)
 VALUES ('Павел', 'Быков', 3);
-insert into teacher (first_name, second_name, work_experience)
+insert into teacher (first_name, last_name, work_experience)
 VALUES ('Анжела', 'Зиновьева', 15);
-insert into teacher (first_name, second_name, work_experience)
+insert into teacher (first_name, last_name, work_experience)
 VALUES ('Таисия', 'Шарапова', 7);
 
 insert into course (name, start_date, end_date, teacher_id)

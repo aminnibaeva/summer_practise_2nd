@@ -5,7 +5,7 @@ import java.util.List;
 public class Teacher {
     private Long id;
     private String firstName;
-    private String secondName;
+    private String lastName;
     private Integer workExperience;
     private List<Course> courses;
 
@@ -13,17 +13,17 @@ public class Teacher {
         this.id = id;
     }
 
-    public Teacher(Long id, String firstName, String secondName, Integer workExperience, List<Course> courses) {
+    public Teacher(Long id, String firstName, String lastName, Integer workExperience, List<Course> courses) {
         this.id = id;
         this.firstName = firstName;
-        this.secondName = secondName;
+        this.lastName = lastName;
         this.workExperience = workExperience;
         this.courses = courses;
     }
 
-    public Teacher(String firstName, String secondName, Integer workExperience, List<Course> courses) {
+    public Teacher(String firstName, String lastName, Integer workExperience, List<Course> courses) {
         this.firstName = firstName;
-        this.secondName = secondName;
+        this.lastName = lastName;
         this.workExperience = workExperience;
         this.courses = courses;
     }
@@ -44,12 +44,12 @@ public class Teacher {
         this.firstName = firstName;
     }
 
-    public String getSecondName() {
-        return secondName;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setSecondName(String secondName) {
-        this.secondName = secondName;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public Integer getWorkExperience() {
@@ -73,7 +73,7 @@ public class Teacher {
         return "Teacher{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
-                ", secondName='" + secondName + '\'' +
+                ", lastName='" + lastName + '\'' +
                 ", workExperience=" + workExperience +
                 '}';
     }

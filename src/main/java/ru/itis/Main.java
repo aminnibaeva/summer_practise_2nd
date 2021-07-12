@@ -38,12 +38,12 @@ public class Main {
             System.out.println(course);
 
         }
-        System.out.println("\n" + "findCoursesById: " + coursesRepository.findById(3));
+        System.out.println("\n" + "findCoursesById: " + coursesRepository.findById(77));
 
         LessonsRepository lessonsRepository = new LessonRepositoryJdbcTemplateImpl(dataSource);
         System.out.println("\n" + "findAllLessonsByName: " + lessonsRepository.findAllByName("Английский"));
         lessonsRepository.save(new Lesson("Французский", LocalDate.parse("2020-05-05"), new Course(1L)));
         System.out.println("\n" + "findAllLessonsById: " + lessonsRepository.findById(6));
         lessonsRepository.update(new Lesson(6L, "Татарский", LocalDate.parse("2020-05-05"), new Course(1L)));
-    }
+   }
 }

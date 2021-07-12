@@ -5,7 +5,7 @@ import java.util.List;
 public class Student {
     private Long id;
     private String firstName;
-    private String secondName;
+    private String lastName;
     private Integer group;
     private List<Course> courses;
 
@@ -13,16 +13,16 @@ public class Student {
         this.id = id;
     }
 
-    public Student(Long id, String firstName, String secondName, Integer group) {
+    public Student(Long id, String firstName, String lastName, Integer group) {
         this.id = id;
         this.firstName = firstName;
-        this.secondName = secondName;
+        this.lastName = lastName;
         this.group = group;
     }
 
-    public Student(String firstName, String secondName, Integer group, List<Course> courses) {
+    public Student(String firstName, String lastName, Integer group, List<Course> courses) {
         this.firstName = firstName;
-        this.secondName = secondName;
+        this.lastName = lastName;
         this.group = group;
         this.courses = courses;
     }
@@ -43,12 +43,12 @@ public class Student {
         this.firstName = firstName;
     }
 
-    public String getSecondName() {
-        return secondName;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setSecondName(String secondName) {
-        this.secondName = secondName;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public Integer getGroup() {
@@ -72,7 +72,7 @@ public class Student {
         return "Student{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
-                ", secondName='" + secondName + '\'' +
+                ", lastName='" + lastName + '\'' +
                 ", group=" + group +
                 '}';
     }

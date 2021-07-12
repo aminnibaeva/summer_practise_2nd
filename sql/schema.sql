@@ -2,7 +2,7 @@ create table teacher
 (
     id              serial primary key,
     first_name      varchar(30) not null,
-    second_name     varchar(30) not null,
+    last_name     varchar(30) not null,
     work_experience int
 );
 
@@ -21,7 +21,7 @@ create table student
 (
     id           serial primary key,
     first_name   varchar(30),
-    second_name  varchar(30),
+    last_name  varchar(30),
     group_number int
 );
 
